@@ -46,18 +46,6 @@ This is a MVC many-to-many mock up site for Dr. Sillystring'z who needs to manag
 
    - If you set up MySQL Server with a different username and/or password, the command will be `mysql -uYourUsername -pYourPassword`
 
-### To Import Database Structure:
-
-1. Open MySQL Workbench
-2. On the "Welcome" page, double-click the MySQL Local instance 3306 in the **MySQL Connections** section. You may be prompted to enter a password; if so, this will be `epicodus` or your custom password from the _Database Setup_ instructions above.
-3. Click on the **Adminstration** tab
-
-   - Click on _Data Import/Restore_
-   - In the Data Import window that appears, select _Import from Self-Contained File_
-   - Navigate the file selection to your cloned project location and choose the `.sql` file at `HairSalon.Solution/isaac_moreno.sql`
-   - At the **Default Target Schema** option, choose _New_ and Enter a name for your database and select OK.
-   - Click the _Start Import_ button at the bottom-right.
-
 ### To Run Application:
 
 1. To run console app:
