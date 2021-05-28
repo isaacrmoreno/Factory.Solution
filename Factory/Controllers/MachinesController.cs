@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using SillyFactory.Models;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace SillyFactory.Controllers
@@ -67,7 +67,6 @@ namespace SillyFactory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     public ActionResult AddEngineer(int id)
     {
       var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);

@@ -10,6 +10,5 @@ namespace SillyFactory.Controllers
     {
       return View();
     }
-
   }
 }

@@ -9,7 +9,6 @@ namespace SillyFactory.Models
     {
       this.JoinEntities = new HashSet<EngineerMachine>();
     }
-
     public int MachineId { get; set; }
     [Required]
     public string Description { get; set; }
