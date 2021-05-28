@@ -2,6 +2,11 @@ body {
   margin: 110px;
 }
 
+li,
+p {
+  font-size: 1.5em;
+}
+
 #header {
   background: #333;
   top: 0px;
