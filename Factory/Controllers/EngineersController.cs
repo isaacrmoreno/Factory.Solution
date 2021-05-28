@@ -1,10 +1,12 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using SillyFactory.Models;
+using System.Collections.Generic;
 using System.Linq;
+using System;
 
-namespace SillyFactory.Controllers
+namespace Factory.Controllers
 {
   public class EngineersController : Controller
   {
@@ -37,11 +39,12 @@ namespace SillyFactory.Controllers
     public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers
-          .Include(engineer => engineer.JoinEntities)
-          .ThenInclude(join => join.Machine)
-          .FirstOrDefault(engineer => engineer.EngineerId == id);
+        .Include(engineer => engineer.JoinEntities)
+        .ThenInclude(join => join.Machine)
+        .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
+
     public ActionResult Edit(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
@@ -56,6 +59,7 @@ namespace SillyFactory.Controllers
       return RedirectToAction("Index");
     }
 
+
     public ActionResult Delete(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
@@ -67,6 +71,15 @@ namespace SillyFactory.Controllers
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       _db.Engineers.Remove(thisEngineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteMachine(int joinId)
+    {
+      var joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+      _db.EngineerMachine.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
