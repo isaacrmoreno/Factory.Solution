@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SillyFactory.Models.Engineer
+
+<h4>Add new engineer</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new { @class = "text", type = "name", required = "required" })
+  <input type="submit" value="Add new engineer" />
+}
+<p>@Html.ActionLink("Show All Engineers", "Index")</p>
