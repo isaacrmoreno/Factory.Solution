@@ -6,7 +6,8 @@
 
 <h2>Engineer Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.FirstName) @Html.DisplayFor(model => model.FirstName)</h3>
+<h3>@Html.DisplayNameFor(model => model.LastName) @Html.DisplayFor(model => model.LastName)</h3>
 
 @if(@Model.JoinEntities.Count == 0)
 {
@@ -22,13 +23,13 @@ else
       @using (Html.BeginForm("DeleteMachine", "Engineers"))
     {
       @Html.Hidden("joinId", @join.EngineerMachineId)
-      <input type="submit" value="Delete"/>
+      <input type="submit" value="Delete" class="btn btn-default"/>
     }
   }
   </ul>
 }
-
-<p>@Html.ActionLink("Add a Machine", "Create", new { id = Model.EngineerId })</p>
+@* machines *@
+<p>@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Back to Engineers", "Index")</p>
 <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
