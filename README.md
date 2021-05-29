@@ -39,26 +39,22 @@ This is a MVC many-to-many mock up site for Dr. Sillystring'z who needs to manag
 
 - Note: Make sure that [YOUR DATABASE] and [YOUR PASSWORD] match the database name and password of your local MySql server.
 
-### Database Setup:
-
-1. Carefully follow [these steps from LearnHowToProgram.com](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql) to install both **MySQL Server 8.0.19** and **MySQL Workbench**.
-2. Ensure the MySQL server is running by opening Terminal or Windows Powershell and entering the command `mysql -uroot -pepicodus`
-
-   - If you set up MySQL Server with a different username and/or password, the command will be `mysql -uYourUsername -pYourPassword`
-
 ### To Run Application:
 
 1. To run console app:
-   - Navigate to `Factory.Solution/Factory` in your command line
+   - Navigate to the `Factory.Solution/Factory` directory and run the following commands:
+     - `dotnet restore` to restore the dependencies that are listed in `Factory.csproj`
+     - `dotnet add package Microsoft.EntityFrameworkCore -v 5.0.0`
+     - `dotnet add package Pomelo.EntityFrameworkCore.MySql -v 5.0.0-alpha.2`
+     - `dotnet add package Microsoft.EntityFrameworkCore.Proxies -v 5.0.0`
+     - `dotnet build` to build the project and its dependencies into a set of binaries
+     - `dotnet tool install --global dotnet-ef` to install EF Core tools
+     - `dotnet ef migrations add Initial` and `dotnet ef database update`
    - Run the command `dotnet restore` to restore the dependencies that are listed in the .csproj
    - Run the command `dotnet build` to build the project and its dependencies into a set of binaries
-   - Run the command `dotnet run` to run project.
+   - Finally, run the command `dotnet run` to run the project!
    - View project via web browser: `localhost:5000/`
    - Note: `dotnet run` also restores and builds the project, so you can use this single command to start the console app
-2. (Optional) To run tests:
-   - Navigate to `Factory.Solution/Factory.Tests` in your command line.
-   - Run the command `dotnet restore` to restore the dependencies that are listed in the .csproj
-   - Finally, run the command `dotnet test` to run the tests!
 
 <hr style="height: 1px; border:none; color:#333;" />
 
