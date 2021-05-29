@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.ComponentModel;
+
 
 namespace SillyFactory.Models
 {
@@ -11,7 +13,11 @@ namespace SillyFactory.Models
     }
     public int EngineerId { get; set; }
     [Required]
-    public string Name { get; set; }
+    [DisplayName("First Name: ")]
+    public string FirstName { get; set; }
+    [DisplayName("Last Name: ")]
+
+    public string LastName { get; set; }
     public virtual ICollection<EngineerMachine> JoinEntities { get; set; }
   }
 }
